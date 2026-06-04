@@ -23,10 +23,8 @@ pipeline {
                     echo "version is $appversion "
                }
             }
-        }       
-    }
-
- stage('Docker Build') {
+        } 
+        stage('Docker Build') {
             steps {
                script{
                 withAWS(region: 'us-east-1', credentials: 'aws-creds') {
@@ -41,7 +39,10 @@ pipeline {
                  
                }
             }
-        }    
+        }       
+    }
+
+           
     post { 
         always { 
             echo 'I will always say Hello again!'
